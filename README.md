@@ -1,111 +1,115 @@
-# SIGCOIN — Sistema de Gestión Contable Inmobiliaria
+# SIGCOIN - Sistema de Gestión Contable Inmobiliaria
 
-> **Trabajo Final Integrador (TFI)**  
-> **Carrera:** Tecnicatura Universitaria en Programación (UTN)  
-> **Instancia Evaluativa:** Segunda Entrega — Diseño y Módulos (Condición de Regular)  
+---
+
+## Trabajo Final Integrador - Primera Entrega
 
 ---
 
 ## 👥 Equipo de Trabajo
 
-* **Integrantes:** Mauro Maximiliano Cuquejo, Melisa Magalí Diaz de Quintana  
-* **Tutor:** Juan Ignacio Schiavonni  
-* **Repositorio Único de GitHub:** [TFI_Cuquejo_DiazdeQuintana](https://github.com/melisaddq/TFI_Cuquejo_DiazdeQuintana)  
+* **Integrantes:** Mauro Maximiliano Cuquejo, Melisa Magalí Diaz de Quintana
 
----
+* **Tutor:** Juan Ignacio Schiavonni
 
-## 📐 Segunda Entrega — Estado de Cumplimiento & Validación
+* **Fecha de Entrega:** 30 de Agosto de 2026
 
-Esta entrega valida el diseño completo de la base de datos, el listado y priorización de módulos funcionales, la arquitectura técnica elegida y la estructura inicial del repositorio para obtener la **Condición de Regular**.
+* **Repositorio:** [TFI_Cuquejo_DiazdeQuintana](https://github.com/melisaddq/TFI_Cuquejo_DiazdeQuintana)
 
-> [!IMPORTANT]
-> **Conformidad con la Consigna:** En esta instancia **no se incluye código ni implementación de lógica de negocio**. Únicamente se presentan diagramas, esquemas DDL/DML, documentación técnica de arquitectura y la estructura base de carpetas y configuraciones para preparar los entornos de desarrollo.
 
-### Checklist de Entrega
 
-- [x] **No se subió código de lógica de negocio** (únicamente esquemas, diagramas, documentación y configuraciones base de proyectos).
-- [x] **Diseño de Base de Datos completo** (modelo relacional MySQL, claves, índices e integridad referencial).
-- [x] **Listado de Módulos prioritarios (P0/P1/P2)** con alcance MVP y evolutivo.
-- [x] **Arquitectura del Proyecto documentada** (Arquitectura Hexagonal - Ports & Adapters, Java 21, Spring Boot, React, TypeScript).
-- [x] **Estructura de Repositorio Organizada** (carpetas `/frontend`, `/backend`, `/database`, `/docs`).
-- [x] **Scripts de Base de Datos DDL y DML** subidos a `/database`.
-- [x] **Diagramas UML** (Clases, Componentes y Secuencia) subidos a `/docs/diagrams/`.
-- [x] **README.md actualizado** con enlaces a toda la documentación del proyecto.
+## 📑 Resumen Ejecutivo
 
----
+El presente Trabajo Final Integrador documenta la planificación, diseño y estrategia de calidad para el desarrollo del **Sistema de Gestión Contable Inmobiliaria (SIGCOIN)**, una solución digital orientada a modernizar y centralizar la gestión contable del rubro inmobiliario.
 
-## 📁 Estructura del Repositorio Único
+A partir de la experiencia adquirida en distintas empresas de dicho sector, hemos observado que sus sistemas de gestión actuales carecen de la integración necesaria para facilitar de forma adecuada las responsabilidades diarias del ámbito contable. A saber: la falta de integración con herramientas externas o de utilidades específicas en el manejo de cajas chicas, facturación, definición de tipos de contrataciones y percepciones. En este caso, los usuarios se ven obligados a trabajar con un conjunto de herramientas diversas, tanto físicas como virtuales, para luego realizar una unificación manual de la información. Esto dificulta enormemente los procesos de control, seguimiento y calidad.
 
-El repositorio ha sido estructurado en módulos independientes de frontend y backend, manteniendo el proyecto centralizado en un único repositorio:
 
-```text
-TFI_Cuquejo_DiazdeQuintana/
-├── 📁 backend/                # Proyecto API REST Java 21 + Spring Boot (Hexagonal)
-│   ├── 📁 src/main/java/ar/edu/utn/tupad/sigcoin/
-│   │   ├── 📁 domain/        # Entidades puras y Puertos de aplicación
-│   │   ├── 📁 application/   # Servicios y casos de uso
-│   │   └── 📁 infrastructure/# Adaptadores REST (Controllers) y JPA Repositories
-│   ├── 📁 src/main/resources/# Configuración application.properties
-│   ├── 📄 build.gradle       # Configuración de dependencias Gradle
-│   └── 📄 settings.gradle
-│
-├── 📁 frontend/               # Proyecto SPA React 18 + TypeScript (Vite)
-│   ├── 📁 public/            # Recursos estáticos
-│   ├── 📁 src/               # Código fuente UI
-│   │   ├── 📁 components/    # Componentes UI reutilizables
-│   │   ├── 📁 modules/       # Estructura modular (Auth, Personas, Contratos, etc.)
-│   │   ├── 📁 services/      # Servicios de comunicación con API REST
-│   │   ├── 📁 types/         # Interfaces y tipos de TypeScript
-│   │   ├── 📄 App.tsx        # Shell principal de la aplicación
-│   │   ├── 📄 main.tsx       # Punto de entrada React
-│   │   └── 📄 index.css      # Sistema de diseño de estilos base
-│   ├── 📄 package.json       # Dependencias Vite + React + Lucide
-│   ├── 📄 tsconfig.json      # Configuración de TypeScript
-│   └── 📄 vite.config.ts     # Configuración de servidor de desarrollo y proxy API
-│
-├── 📁 database/               # Scripts de Base de Datos MySQL
-│   ├── 📄 schema.sql         # Script DDL completo de creación de tablas e índices
-│   └── 📄 seed.sql           # Script DML de datos semilla iniciales
-│
-└── 📁 docs/                   # Documentación de Análisis, Diseño y UML
-    ├── 📄 architecture.md    # Documento de Arquitectura Hexagonal y decisiones
-    ├── 📄 modules.md         # Listado funcional de módulos, alcance y prioridades
-    ├── 📄 database-design.md # Especificación del modelo relacional
-    └── 📁 diagrams/          # Diagramas UML en formato Mermaid
-        ├── 📄 uml-class-diagram.md     # Diagrama UML de Clases del Dominio
-        ├── 📄 uml-component-diagram.md # Diagrama UML de Componentes del Sistema
-        └── 📄 uml-sequence-diagrams.md # Diagramas UML de Secuencia (Flujos principales)
-```
 
----
+## 💡 Propuesta de Valor y Solución
 
-## 📚 Índice de Documentación Entregada
+El sistema optimiza la administración inmobiliaria mediante la automatización y centralización de los siguientes procesos clave:
 
-Toda la documentación requerida para la evaluación del tutor se encuentra accesible a través de los siguientes enlaces directos:
 
-1. **[Arquitectura del Proyecto (`docs/architecture.md`)](docs/architecture.md):** Justificación del stack tecnológico (Java 21, Spring Boot, React, TypeScript, MySQL, AWS EC2), división en capas de la Arquitectura Hexagonal y estrategia de despliegue.
-2. **[Listado de Módulos Funcionales (`docs/modules.md`)](docs/modules.md):** Matriz de prioridades (P0 - Críticos, P1 - Altos, P2 - Evolutivos) y desglose de capacidades para el MVP.
-3. **[Diseño de Base de Datos (`docs/database-design.md`)](docs/database-design.md):** Especificación del modelo entidad-relación, reglas de integridad, índices principales y justificación del motor relacional MySQL.
-4. **Diagramas UML Mermaid (`docs/diagrams/`):**
-   * [Diagrama UML de Clases del Dominio](docs/diagrams/uml-class-diagram.md)
-   * [Diagrama UML de Componentes del Sistema](docs/diagrams/uml-component-diagram.md)
-   * [Diagramas UML de Secuencia (Cobranzas, Ajustes, Turnero)](docs/diagrams/uml-sequence-diagrams.md)
-5. **Base de Datos (`database/`):**
-   * [Esquema DDL de Base de Datos (`database/schema.sql`)](database/schema.sql)
-   * [Datos Semilla DML (`database/seed.sql`)](database/seed.sql)
 
----
+* **Buscador unificado de propietarios e inquilinos:** Permite localizar rápidamente información mediante DNI/CUIT, nombre, apellido, garante o dirección del inmueble.
 
-## 💡 Resumen del Proyecto SIGCOIN
+* **Gestión en todo momento de datos de contacto:** Facilita la actualización inmediata de los datos en cualquier instancia del flujo operativo.
 
-El **Sistema de Gestión Contable Inmobiliaria (SIGCOIN)** resuelve la fragmentación operativa del rubro inmobiliario ofreciendo:
-* **Buscador unificado de clientes y propiedades:** Localización instantánea por DNI, CUIT, nombre o dirección.
-* **Inmutabilidad en la emisión de comprobantes:** Recibos oficiales protegidos contra alteraciones, con soporte para comprobantes complementarios por novedades.
-* **Tesorería y Turnero de Pagos:** Manejo transparente de Cajas Chicas por operador, Caja Maestra consolidada y turnero de pago sujeto a liquidez diaria.
-* **Ajustes contractuales por inflación:** Cálculo de alquileres basado en índices oficiales (ICL/IPC).
+* **Emisión de comprobantes complementarios:** Habilita el registro de novedades operativas con posterioridad al cobro o pago, resguardando la inmutabilidad contable del recibo original.
 
----
+* **Consolidación de cajas y gestión de turnos financieros:** Ofrece visibilidad en tiempo real de las Cajas Chicas y la Caja Maestra, implementando un turnero de pagos supeditado a la liquidez diaria disponible.
 
-## 🔗 Tablero de Seguimiento del Proyecto
+* **Cálculo e incremento automatizado de alquileres:** Se conecta directamente a las APIs oficiales del BCRA e INDEC para determinar los ajustes contractuales (ICL/IPC).
 
-* **ClickUp:** [Tablero de Seguimiento del Proyecto](https://app.clickup.com/90171307341/v/b/li/901717366518)
+
+
+## 🎯 Alcance del Proyecto (MVP)
+
+
+
+| Módulo / Capacidad   | Incluido en MVP (Fase 1)                                                            | Excluido (Fase 2 / Evolutivo)                                    |
+|----------------------|-------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| Clientes y Contratos | ABM de propietarios, inquilinos, garantes y contratos de alquiler. Buscador global. | Portal de autogestión para inquilinos y propietarios.            |
+| Gestión de Caja      | Cajas chicas individuales por usuario y vista de Caja Maestra gerencial.            | Conciliación bancaria automatizada por CBU/CVU.                  |
+| Facturación          | Recibos principales y comprobantes complementarios por novedades.                   | Facturación electrónica directa con AFIP/ARCA.                   |
+| Ajustes de Contrato  | Consulta automatizada de índices (BCRA / INDEC) y cálculo de aumentos.              | Proyección predictiva de rentabilidad mediante Machine Learning. |
+| Operaciones          | Dashboard interactivo y turnero manual de pagos según liquidez.                     | Módulo de pago a proveedores y alertas vía WhatsApp Business.    |_
+
+
+
+## 📊 Evaluación de Viabilidad
+
+* **Viabilidad Operativa:** Se encuentra respaldada por la validación continua de una experta en el mercado de inmuebles, lo que asegura que cada solución diseñada se ajuste estrictamente a las demandas y flujos operativos del entorno real.
+
+* **Viabilidad Técnica:** El grupo de trabajo posee una sólida trayectoria en la implementación de arquitecturas multicapa y sistemas de alta transaccionalidad, con un enfoque específico en la gestión de lógica financiera compleja.
+
+* **Viabilidad Temporal:** Se ha definido un Producto Mínimo Viable (MVP) riguroso que posterga la integración de proveedores y alertas externas, priorizando así el cumplimiento efectivo de los plazos establecidos por el calendario académico.
+
+
+
+## 🚀 Estrategia de Ejecución del Proyecto
+
+Nuestro proyecto propone la construcción y entrega de un **Producto Mínimo Viable (MVP)** funcional en un plazo estricto de 4 meses, y la integración futura de funcionalidades que permitan resolver esta falta de integración, junto con el añadido de funcionalidades específicas de las cuales los sistemas actuales carecen.
+
+Para garantizar el cumplimiento de este objetivo, el equipo de desarrollo estructuró la ejecución del proyecto basándose en los siguientes pilares técnicos y de gestión:
+
+
+
+* **Estrategia y Metodología:** Se adoptó un Modelo Incremental guiado por el marco de trabajo ágil Scrum, lo que permite priorizar las funcionalidades críticas (Gestión de Usuarios, Facturación, Búsquedas dinámicas de información, Manejo de Tesorería) y asegurar entregas de valor tempranas.
+
+* **Hoja de Ruta (Roadmap):** Se planificó un cronograma de 16 semanas, desglosando el esfuerzo en tres incrementos funcionales con un fuerte enfoque en la accesibilidad visual (UX/UI) y el desacoplamiento de vistas.
+
+* **Gestión de Riesgos y Stakeholders:** Se identificaron y clasificaron los actores clave según su poder e interés, estableciendo planes de mitigación concretos frente a desafíos técnicos (como la migración desde otras alternativas de software legacy) y de negocio (resistencia al cambio y adopción del sistema).
+
+* **Desglose de Tareas (WBS):** Se estructuró detalladamente el módulo de Autenticación y Registro, el módulo de Gestión de Contratos, el módulo de Facturación, y el módulo de Gestión de Caja; estimando el esfuerzo en horas ideales.
+
+* **Aseguramiento de Calidad (QA):** Se diseñó un plan de pruebas integral que abarca técnicas de Caja Blanca y Caja Negra (partición de equivalencia, análisis de valores límite y tablas de decisión), evidenciando el impacto económico crítico que implicaría omitir el testeo temprano antes de salir a producción.
+
+
+
+## 💻 Stack Tecnológico y Arquitectura
+
+Seleccionamos herramientas con las que el equipo ya tiene experiencia para garantizar la viabilidad técnica y temporal del desarrollo, asumiendo que el mejor stack es el que ya se domina:
+
+
+
+| Componente                           | Tecnologías             | Justificación Arquitectónica                                                                                                                                                                                                                   |
+|--------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Aplicación Cliente (Frontend Web - SPA) | React, TypeScript, Vite | Construcción de un panel de control administrativo responsivo, optimizado para flujos rápidos de carga y enfocado en un diseño visualmente limpio, luminoso y minimalista.                                                                     |
+| Servicios (Backend - API REST)       | Java, Spring Boot       | Implementación de Arquitectura Hexagonal (Puertos y Adaptadores) <br>• Dominio: Entidades y reglas de negocio puras.<br>• Puertos: Contratos para repositorios y APIs.<br> • Adaptadores: Controladores REST, Spring Data JPA y clientes HTTP. |
+| Base de Datos                        | MySQL                   | La estructura definida y estable de los contratos, propiedades y clientes requiere la integridad transaccional que provee el modelo relacional.                                                                                                |
+| Despliegue y Entornos                | AWS (Instancia EC2)     | Modelo de servidor tradicional (VPS) que otorga control total sobre el entorno, permitiendo alojar DB, API y archivos estáticos en una única unidad, cumpliendo el requisito académico de disponibilidad online.                               |
+
+
+
+## 📁 Estructura del Repositorio
+
+* `/frontend`: Código fuente de la interfaz web (React/TypeScript).
+
+* `/backend`: Código fuente de la API y lógica de negocio (Java/Spring Boot).
+
+* `/database`: Scripts DDL/DML y esquemas (MySQL).
+
+* `/docs`: Informes, esquemas de avances, documentación técnica y enlace al video explicativo.
+
