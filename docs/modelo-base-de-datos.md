@@ -2,13 +2,13 @@
 
 ## 1. Motor de Base de Datos y Criterios Técnicos
 
-* **Motor RDBMS:** MySQL 8.0+.
-* **Justificación de Elección Relacional:** Las operaciones contables inmobiliarias requieren relaciones estrictas (un contrato pertenece a un inmueble, una cobranza genera un comprobante inmutable y se registra en una caja). El cumplimiento de las propiedades **ACID** (Atomicidad, Consistencia, Aislamiento y Durabilidad) es obligatorio para resguardar la inmutabilidad financiera.
+* **Motor:** MySQL 8.0+.
+* **Justificación de Elección:** Las operaciones contables inmobiliarias requieren relaciones estrictas (un contrato pertenece a un inmueble, una cobranza genera un comprobante inmutable y se registra en una caja). El cumplimiento de las propiedades **ACID** (Atomicidad, Consistencia, Aislamiento y Durabilidad) es obligatorio para resguardar la inmutabilidad financiera.
 * **Convenciones de Diseño:**
   * Identificadores de Clave Primaria: `BIGINT UNSIGNED AUTO_INCREMENT`.
-  * Importes Monetarios: `DECIMAL(15,2)` (nunca tipos de punto flotante IEEE).
+  * Importes Monetarios: `DECIMAL(15,2)`.
   * Fechas de Transacción: `DATETIME` para marcas temporales de auditoría y `DATE` para períodos contables.
-  * Trazabilidad y Bajas Lógicas: Uso de flags `activo BOOLEAN` y estados explícitos (`EMITIDO`, `ANULADO`, `PENDIENTE`, `VIGENTE`) para evitar borrado físico destructivo.
+  * Trazabilidad y Bajas Lógicas: Uso de flags `activo BOOLEAN` y estados explícitos (`EMITIDO`, `ANULADO`, `PENDIENTE`, `VIGENTE`) para evitar borrado físico.
 
 ---
 
@@ -34,7 +34,7 @@
 
 ---
 
-## 3. Diagrama Entidad-Relación (ERD Mermaid)
+## 3. Diagrama Entidad-Relación
 
 ```mermaid
 erDiagram
@@ -57,7 +57,7 @@ erDiagram
     USUARIO ||--o{ COMPROBANTE : emite
     USUARIO ||--o{ MOVIMIENTO_CAJA : ejecuta
 ```
-
+![DER SIGCOIN](docs/modelo-base-de-datos.png)
 ---
 
 ## 4. Índices y Reglas de Integridad Referencial

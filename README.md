@@ -2,7 +2,7 @@
 
 > **Trabajo Final Integrador (TFI)**  
 > **Carrera:** Tecnicatura Universitaria en Programación (UTN)  
-> **Instancia Evaluativa:** Segunda Entrega — Diseño y Módulos (Condición de Regular)  
+> **Instancia Evaluativa:** Segunda Entrega — Diseño y Módulos  
 
 ---
 
@@ -16,10 +16,13 @@
 
 ## 📐 Segunda Entrega — Estado de Cumplimiento & Validación
 
-Esta entrega valida el diseño completo de la base de datos, el listado y priorización de módulos funcionales, la arquitectura técnica elegida y la estructura inicial del repositorio.
+Esta entrega valida el diseño completo de la base de datos, el listado y priorización de módulos funcionales, la 
+arquitectura técnica elegida y la estructura inicial del repositorio.
 
 > **IMPORTANTE:**
-> Esta entrega **no incluye código ni implementación de lógica de negocio**. Únicamente se presentan diagramas, esquemas DDL/DML, documentación técnica de arquitectura y la estructura base de carpetas y configuraciones para preparar los entornos de desarrollo.
+> Esta entrega **no incluye código ni implementación de lógica de negocio**. Únicamente se presentan diagramas, 
+> esquemas DDL/DML, documentación técnica de arquitectura y la estructura base de carpetas y configuraciones para 
+> preparar los entornos de desarrollo.
 
 ### Checklist de Entrega
 
@@ -35,7 +38,8 @@ Esta entrega valida el diseño completo de la base de datos, el listado y priori
 
 ## 📁 Estructura del Repositorio Único
 
-El repositorio ha sido estructurado en módulos independientes de frontend y backend, manteniendo el proyecto centralizado en un único repositorio:
+El repositorio ha sido estructurado en módulos independientes de frontend y backend, manteniendo el proyecto 
+centralizado en un único repositorio:
 
 ```text
 TFI_Cuquejo_DiazdeQuintana/
