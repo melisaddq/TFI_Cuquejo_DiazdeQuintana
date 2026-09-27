@@ -16,20 +16,19 @@
 
 ## 📐 Segunda Entrega — Estado de Cumplimiento & Validación
 
-Esta entrega valida el diseño completo de la base de datos, el listado y priorización de módulos funcionales, la arquitectura técnica elegida y la estructura inicial del repositorio para obtener la **Condición de Regular**.
+Esta entrega valida el diseño completo de la base de datos, el listado y priorización de módulos funcionales, la arquitectura técnica elegida y la estructura inicial del repositorio.
 
-> [!IMPORTANT]
-> **Conformidad con la Consigna:** En esta instancia **no se incluye código ni implementación de lógica de negocio**. Únicamente se presentan diagramas, esquemas DDL/DML, documentación técnica de arquitectura y la estructura base de carpetas y configuraciones para preparar los entornos de desarrollo.
+> **IMPORTANTE:**
+> Esta entrega **no incluye código ni implementación de lógica de negocio**. Únicamente se presentan diagramas, esquemas DDL/DML, documentación técnica de arquitectura y la estructura base de carpetas y configuraciones para preparar los entornos de desarrollo.
 
 ### Checklist de Entrega
 
-- [x] **No se subió código de lógica de negocio** (únicamente esquemas, diagramas, documentación y configuraciones base de proyectos).
-- [x] **Diseño de Base de Datos completo** (modelo relacional MySQL, claves, índices e integridad referencial).
+- [x] **Diseño de Base de Datos** (modelo relacional MySQL, claves, índices e integridad referencial).
 - [x] **Listado de Módulos prioritarios (P0/P1/P2)** con alcance MVP y evolutivo.
-- [x] **Arquitectura del Proyecto documentada** (Arquitectura Hexagonal - Ports & Adapters, Java 21, Spring Boot, React, TypeScript).
+- [x] **Arquitectura del Proyecto documentada** (Arquitectura Hexagonal - Puertos & Adaptadores, Java 21 y Spring Boot para el Backend, React y TypeScript para el Frontend).
 - [x] **Estructura de Repositorio Organizada** (carpetas `/frontend`, `/backend`, `/database`, `/docs`).
 - [x] **Scripts de Base de Datos DDL y DML** subidos a `/database`.
-- [x] **Diagramas UML** (Clases, Componentes y Secuencia) subidos a `/docs/diagrams/`.
+- [x] **Diagramas UML** (Clases, Componentes y Secuencia) subidos a `/docs/diagramas/`.
 - [x] **README.md actualizado** con enlaces a toda la documentación del proyecto.
 
 ---
@@ -65,7 +64,7 @@ TFI_Cuquejo_DiazdeQuintana/
 │
 ├── 📁 database/               # Scripts de Base de Datos MySQL
 │   ├── 📄 schema.sql         # Script DDL completo de creación de tablas e índices
-│   └── 📄 seed.sql           # Script DML de datos semilla iniciales
+│   └── 📄 inicializacion.sql           # Script DML de datos semilla iniciales
 │
 └── 📁 docs/                   # Documentación de Análisis, Diseño y UML
     ├── 📄 architecture.md    # Documento de Arquitectura Hexagonal y decisiones
@@ -83,16 +82,16 @@ TFI_Cuquejo_DiazdeQuintana/
 
 Toda la documentación requerida para la evaluación del tutor se encuentra accesible a través de los siguientes enlaces directos:
 
-1. **[Arquitectura del Proyecto (`docs/architecture.md`)](docs/architecture.md):** Justificación del stack tecnológico (Java 21, Spring Boot, React, TypeScript, MySQL, AWS EC2), división en capas de la Arquitectura Hexagonal y estrategia de despliegue.
-2. **[Listado de Módulos Funcionales (`docs/modules.md`)](docs/modules.md):** Matriz de prioridades (P0 - Críticos, P1 - Altos, P2 - Evolutivos) y desglose de capacidades para el MVP.
-3. **[Diseño de Base de Datos (`docs/database-design.md`)](docs/database-design.md):** Especificación del modelo entidad-relación, reglas de integridad, índices principales y justificación del motor relacional MySQL.
-4. **Diagramas UML Mermaid (`docs/diagrams/`):**
-   * [Diagrama UML de Clases del Dominio](docs/diagrams/uml-class-diagram.md)
-   * [Diagrama UML de Componentes del Sistema](docs/diagrams/uml-component-diagram.md)
-   * [Diagramas UML de Secuencia (Cobranzas, Ajustes, Turnero)](docs/diagrams/uml-sequence-diagrams.md)
+1. **[Arquitectura del Proyecto (`docs/arquitectura.md`)](docs/arquitectura.md):** Justificación del stack tecnológico (Java 21, Spring Boot, React, TypeScript, MySQL, AWS EC2), división en capas de la Arquitectura Hexagonal y estrategia de despliegue.
+2. **[Listado de Módulos Funcionales (`docs/modulos.md`)](docs/modulos.md):** Matriz de prioridades (P0 - Críticos, P1 - Altos, P2 - Evolutivos) y desglose de capacidades para el MVP.
+3. **[Diseño de Base de Datos (`docs/modelo-base-de-datos.md`)](docs/modelo-base-de-datos.md):** Especificación del modelo entidad-relación, reglas de integridad, índices principales y justificación del motor relacional MySQL.
+4. **Diagramas UML Mermaid (`docs/diagramas/`):**
+   * [Diagrama UML de Clases del Dominio](docs/diagramas/diagrama-clases-uml.md)
+   * [Diagrama UML de Componentes del Sistema](docs/diagramas/diagrama-componentes-uml.md)
+   * [Diagramas UML de Secuencia (Cobranzas, Ajustes, Turnero)](docs/diagramas/diagrama-secuencias-uml.md)
 5. **Base de Datos (`database/`):**
    * [Esquema DDL de Base de Datos (`database/schema.sql`)](database/schema.sql)
-   * [Datos Semilla DML (`database/seed.sql`)](database/seed.sql)
+   * [Datos Semilla DML (`database/inicializacion.sql`)](database/inicializacion.sql)
 
 ---
 

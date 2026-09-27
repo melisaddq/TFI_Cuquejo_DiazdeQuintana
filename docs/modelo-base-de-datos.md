@@ -80,5 +80,5 @@ erDiagram
 ## 5. Scripts de Base de Datos
 
 * Script DDL de Creación de Tablas: [`database/schema.sql`](../database/schema.sql)
-* Script DML de Datos Iniciales y Prueba: [`database/seed.sql`](../database/seed.sql)
-* [Diagrama UML de Clases del Dominio](diagrams/uml-class-diagram.md)
+* Script DML de Datos Iniciales y Prueba: [`database/inicializacion.sql`](../database/inicializacion.sql)
+* [Diagrama UML de Clases del Dominio](diagramas/diagrama-clases-uml.md)

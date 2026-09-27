@@ -88,7 +88,7 @@ TFI_Cuquejo_DiazdeQuintana/
 │
 ├── database/                  # Scripts SQL de Base de Datos
 │   ├── schema.sql            # Definición DDL completa (Tablas, Claves, Índices)
-│   └── seed.sql              # Datos iniciales DML (Roles, Usuarios demo, Índices)
+│   └── inicializacion.sql              # Datos iniciales DML (Roles, Usuarios demo, Índices)
 │
 └── docs/                      # Documentación y Diagramas UML
     ├── architecture.md       # Presente documento de arquitectura
@@ -102,9 +102,9 @@ TFI_Cuquejo_DiazdeQuintana/
 ## 5. Diagramas UML de la Arquitectura
 
 Para consultar la representación gráfica completa de la arquitectura y los flujos:
-* [Diagrama UML de Componentes del Sistema](diagrams/uml-component-diagram.md)
-* [Diagrama UML de Clases del Dominio](diagrams/uml-class-diagram.md)
-* [Diagramas UML de Secuencia para Procesos Clave](diagrams/uml-sequence-diagrams.md)
+* [Diagrama UML de Componentes del Sistema](diagramas/diagrama-componentes-uml.md)
+* [Diagrama UML de Clases del Dominio](diagramas/diagrama-clases-uml.md)
+* [Diagramas UML de Secuencia para Procesos Clave](diagramas/diagrama-secuencias-uml.md)
 
 ---
 

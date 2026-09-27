@@ -40,5 +40,5 @@
 ## 4. Diagramas UML de Módulos
 
 Para una especificación detallada del comportamiento y la interacción entre módulos:
-* [Diagrama UML de Componentes de Módulos](diagrams/uml-component-diagram.md)
-* [Diagramas UML de Secuencia Operativos](diagrams/uml-sequence-diagrams.md)
+* [Diagrama UML de Componentes de Módulos](diagramas/diagrama-componentes-uml.md)
+* [Diagramas UML de Secuencia Operativos](diagramas/diagrama-secuencias-uml.md)
