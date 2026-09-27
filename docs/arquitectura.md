@@ -91,11 +91,12 @@ TFI_Cuquejo_DiazdeQuintana/
 │   └── inicializacion.sql              # Datos iniciales DML (Roles, Usuarios demo, Índices)
 │
 └── docs/                      # Documentación y Diagramas UML
-    ├── architecture.md       # Presente documento de arquitectura
-    ├── modules.md            # Listado de módulos y prioridades
-    ├── database-design.md    # Esquema relacional e integridad
-    └── diagrams/             # Diagramas UML Mermaid (Clases, Componentes, Secuencias)
+    ├── arquitectura.md       # Presente documento de arquitectura
+    ├── modulos.md            # Listado de módulos y prioridades
+    ├── modelo-base-de-datos.md # Esquema relacional e integridad
+    └── diagramas/            # Diagramas UML Mermaid (Clases, Componentes, Secuencias)
 ```
+
 
 ---
 

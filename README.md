@@ -67,14 +67,15 @@ TFI_Cuquejo_DiazdeQuintana/
 │   └── 📄 inicializacion.sql           # Script DML de datos semilla iniciales
 │
 └── 📁 docs/                   # Documentación de Análisis, Diseño y UML
-    ├── 📄 architecture.md    # Documento de Arquitectura Hexagonal y decisiones
-    ├── 📄 modules.md         # Listado funcional de módulos, alcance y prioridades
-    ├── 📄 database-design.md # Especificación del modelo relacional
-    └── 📁 diagrams/          # Diagramas UML en formato Mermaid
-        ├── 📄 uml-class-diagram.md     # Diagrama UML de Clases del Dominio
-        ├── 📄 uml-component-diagram.md # Diagrama UML de Componentes del Sistema
-        └── 📄 uml-sequence-diagrams.md # Diagramas UML de Secuencia (Flujos principales)
+    ├── 📄 arquitectura.md    # Documento de Arquitectura Hexagonal y decisiones
+    ├── 📄 modulos.md         # Listado funcional de módulos, alcance y prioridades
+    ├── 📄 modelo-base-de-datos.md # Especificación del modelo relacional
+    └── 📁 diagramas/         # Diagramas UML en formato Mermaid
+        ├── 📄 diagrama-clases-uml.md     # Diagrama UML de Clases del Dominio
+        ├── 📄 diagrama-componentes-uml.md # Diagrama UML de Componentes del Sistema
+        └── 📄 diagrama-secuencias-uml.md # Diagramas UML de Secuencia (Flujos principales)
 ```
+
 
 ---
 
