@@ -6,7 +6,7 @@
 
 ---
 
-## 👥 Equipo de Trabajo
+## Equipo de Trabajo
 
 * **Integrantes:** Mauro Maximiliano Cuquejo, Melisa Magalí Diaz de Quintana  
 * **Tutor:** Juan Ignacio Schiavonni  
@@ -14,7 +14,7 @@
 
 ---
 
-## 📐 Segunda Entrega — Estado de Cumplimiento & Validación
+## Segunda Entrega — Estado de Cumplimiento & Validación
 
 Esta entrega valida el diseño completo de la base de datos, el listado y priorización de módulos funcionales, la 
 arquitectura técnica elegida y la estructura inicial del repositorio.
@@ -36,7 +36,7 @@ arquitectura técnica elegida y la estructura inicial del repositorio.
 
 ---
 
-## 📁 Estructura del Repositorio Único
+## Estructura del Repositorio Único
 
 El repositorio ha sido estructurado en módulos independientes de frontend y backend, manteniendo el proyecto 
 centralizado en un único repositorio:
@@ -83,7 +83,7 @@ TFI_Cuquejo_DiazdeQuintana/
 
 ---
 
-## 📚 Índice de Documentación Entregada
+## Índice de Documentación Entregada
 
 Toda la documentación requerida para la evaluación del tutor se encuentra accesible a través de los siguientes enlaces directos:
 
@@ -100,7 +100,7 @@ Toda la documentación requerida para la evaluación del tutor se encuentra acce
 
 ---
 
-## 💡 Resumen del Proyecto SIGCOIN
+## Resumen del Proyecto SIGCOIN
 
 El **Sistema de Gestión Contable Inmobiliaria (SIGCOIN)** resuelve la fragmentación operativa del rubro inmobiliario ofreciendo:
 * **Buscador unificado de clientes y propiedades:** Localización instantánea por DNI, CUIT, nombre o dirección.
@@ -110,6 +110,6 @@ El **Sistema de Gestión Contable Inmobiliaria (SIGCOIN)** resuelve la fragmenta
 
 ---
 
-## 🔗 Tablero de Seguimiento del Proyecto
+## Tablero de Seguimiento del Proyecto
 
 * **ClickUp:** [Tablero de Seguimiento del Proyecto](https://app.clickup.com/90171307341/v/b/li/901717366518)
