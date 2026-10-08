@@ -1,0 +1,41 @@
+package ar.edu.utn.tupad.sigcoin.domain.entities;
+
+import ar.edu.utn.tupad.sigcoin.domain.enums.EstadoInmueble;
+import ar.edu.utn.tupad.sigcoin.domain.enums.TipoInmueble;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
+
+@Entity
+@Table (name = "inmueble")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Inmueble {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column private String direccion;
+    @Column private String localidad;
+    @Column private String provincia;
+    @Column private String identificacion;
+
+    @Enumerated(EnumType.STRING)
+    @Column private TipoInmueble tipo;
+
+    @Enumerated(EnumType.STRING)
+    @Column private EstadoInmueble estado; //
+    @Column private String observaciones;
+
+    @Column (name = "creado_en")
+    private LocalDateTime creadoEn;
+
+
+}
