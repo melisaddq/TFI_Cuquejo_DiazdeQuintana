@@ -23,33 +23,31 @@ public class MovimientoCaja {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "caja_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "caja_id", nullable = false)
     private Caja caja;
 
-    @ManyToOne @JoinColumn(name = "cobranza_id")
+    // Un movimiento se origina en una cobranza o en una solicitud de pago (o en ninguna, si es manual)
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "cobranza_id")
     private Cobranza cobranza;
 
-    @ManyToOne @JoinColumn(name = "solicitud_pago_id")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "solicitud_pago_id")
     private SolicitudPago solicitudPago;
 
-    @ManyToOne @JoinColumn(name = "usuario_id")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
     @Enumerated(EnumType.STRING)
-    @Column private TipoMovimiento tipo;
+    @Column(nullable = false) private TipoMovimiento tipo;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "medio_de_pago")
+    @Column(name = "medio_de_pago", nullable = false)
     private MedioDePago medioDePago;
 
-    @Column private String concepto;
-    @Column private BigDecimal importe;
+    @Column(nullable = false) private String concepto;
+    @Column(nullable = false) private BigDecimal importe;
 
-    @Column (name = "fecha_hora")
+    @Column (name = "fecha_hora", nullable = false)
     private LocalDateTime fechaHora;
-
-
-
 
 }

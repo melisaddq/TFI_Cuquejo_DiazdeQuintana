@@ -16,11 +16,16 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class InmueblePropietario {
 
-    @ManyToOne @JoinColumn(name = "inmueble_id")
+    @EmbeddedId
+    private InmueblePropietarioId id;
+
+    @ManyToOne(fetch = FetchType.LAZY) @MapsId("inmuebleId")
+    @JoinColumn(name = "inmueble_id")
     private Inmueble inmueble;
 
-    @ManyToOne @JoinColumn(name = "persona_id")
+    @ManyToOne(fetch = FetchType.LAZY) @MapsId("personaId")
+    @JoinColumn(name = "persona_id")
     private Persona persona;
 
-    @Column private BigDecimal porcentaje;
+    @Column(nullable = false) private BigDecimal porcentaje;
 }

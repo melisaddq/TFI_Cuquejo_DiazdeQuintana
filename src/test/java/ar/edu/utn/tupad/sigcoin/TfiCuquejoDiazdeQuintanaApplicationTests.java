@@ -1,4 +1,4 @@
-package ar.edu.utn.tupad.TFI_Cuquejo_DiazdeQuintana;
+package ar.edu.utn.tupad.sigcoin;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

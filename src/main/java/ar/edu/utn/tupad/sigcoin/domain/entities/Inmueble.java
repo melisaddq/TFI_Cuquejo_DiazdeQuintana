@@ -22,20 +22,23 @@ public class Inmueble {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column private String direccion;
-    @Column private String localidad;
-    @Column private String provincia;
+    @Column(nullable = false) private String direccion;
+    @Column(nullable = false) private String localidad;
+    @Column(nullable = false) private String provincia;
     @Column private String identificacion;
 
     @Enumerated(EnumType.STRING)
-    @Column private TipoInmueble tipo;
+    @Column(nullable = false) private TipoInmueble tipo;
 
     @Enumerated(EnumType.STRING)
-    @Column private EstadoInmueble estado; //
+    @Column(nullable = false) private EstadoInmueble estado;
     @Column private String observaciones;
 
-    @Column (name = "creado_en")
+    @Column (name = "creado_en", nullable = false, updatable = false)
     private LocalDateTime creadoEn;
 
-
+    @PrePersist
+    protected void onCreate() {
+        this.creadoEn = LocalDateTime.now();
+    }
 }

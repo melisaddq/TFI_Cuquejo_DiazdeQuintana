@@ -1,6 +1,7 @@
 package ar.edu.utn.tupad.sigcoin.domain.entities;
 
 import ar.edu.utn.tupad.sigcoin.domain.enums.EstadoCobranza;
+import ar.edu.utn.tupad.sigcoin.domain.enums.MedioDePago;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,23 +22,25 @@ public class Cobranza {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne @JoinColumn(name = "contrato_id")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "contrato_id", nullable = false)
     private Contrato contrato;
 
-    @ManyToOne @JoinColumn(name = "registrado_por")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "registrado_por")
     private Usuario registradoPor;
 
-    @Column private LocalDate periodo;
+    @Column(nullable = false) private LocalDate periodo;
 
+    // fechaPago y medioPago quedan en null mientras la cobranza está PENDIENTE
     @Column (name = "fecha_pago")
     private LocalDate fechaPago;
-    @Column private BigDecimal importe;
-
-    @Column (name = "medio_pago")
-    private String medioPago;
+    @Column(nullable = false) private BigDecimal importe;
 
     @Enumerated(EnumType.STRING)
-    @Column private EstadoCobranza estado;
+    @Column (name = "medio_pago")
+    private MedioDePago medioPago;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false) private EstadoCobranza estado;
 
 
 

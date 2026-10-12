@@ -1,5 +1,6 @@
 package ar.edu.utn.tupad.sigcoin.domain.entities;
 
+import ar.edu.utn.tupad.sigcoin.domain.enums.TipoIndice;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +12,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "indice")
+@Table(name = "indice",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"tipo", "periodo"}))
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,9 +23,10 @@ public class Indice {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column private String tipo;
-    @Column private LocalDate periodo;
-    @Column private BigDecimal valor;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false) private TipoIndice tipo;
+    @Column(nullable = false) private LocalDate periodo;
+    @Column(nullable = false) private BigDecimal valor;
     @Column private String fuente;
 
     @Column (name = "consultado_en")

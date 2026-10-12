@@ -19,17 +19,17 @@ public class AjusteContrato {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne @JoinColumn(name = "contrato_id")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "contrato_id", nullable = false)
     private Contrato contrato;
 
-    @ManyToOne @JoinColumn(name = "indice_id")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "indice_id")
     private Indice indice;
 
-    @Column(name = "fecha_aplicacion")
+    @Column(name = "fecha_aplicacion", nullable = false)
     private LocalDate fechaAplicacion;
 
-    @Column (name = "importe_anterior" )
+    @Column (name = "importe_anterior", nullable = false)
     private BigDecimal importeAnterior;
-    @Column private BigDecimal porcentaje;
-    @Column private BigDecimal nuevoImporte;
+    @Column(nullable = false) private BigDecimal porcentaje;
+    @Column(nullable = false) private BigDecimal nuevoImporte;
 }

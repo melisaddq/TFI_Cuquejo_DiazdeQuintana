@@ -17,34 +17,35 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "comprobante")
+@Table(name = "comprobante",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"tipo", "punto_venta", "numero"}))
 public class Comprobante {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
-    @ManyToOne @JoinColumn(name = "cobranza_id")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "cobranza_id", nullable = false)
     private Cobranza cobranza;
 
-    @ManyToOne @JoinColumn(name = "emitido_por")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "emitido_por", nullable = false)
     private Usuario emitidoPor;
 
     @Enumerated(EnumType.STRING)
-    @Column private TipoComprobante tipo;
+    @Column(nullable = false) private TipoComprobante tipo;
 
-    @Column (name = "punto_venta")
+    @Column (name = "punto_venta", nullable = false)
     private Integer puntoVenta;
 
-    @Column private Integer numero;
+    @Column(nullable = false) private Integer numero;
 
-    @Column (name = "fecha_emision")
+    @Column (name = "fecha_emision", nullable = false)
     private LocalDateTime fechaEmision;
 
-    @Column (name = "importe_total")
+    @Column (name = "importe_total", nullable = false)
     private BigDecimal importeTotal;
 
     @Enumerated(EnumType.STRING)
-    @Column private EstadoComprobante estado;
+    @Column(nullable = false) private EstadoComprobante estado;
 
     @Column (name = "motivo_anulacion")
     private String motivoAnulacion;

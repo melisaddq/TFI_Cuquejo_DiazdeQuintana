@@ -24,19 +24,26 @@ public class SolicitudPago {
     @Column
     private Long id;
 
-    @ManyToOne @JoinColumn(name = "solicitante_id")
-    private Usuario solicitanteId;
-    @Column private String concepto;
-    @Column private BigDecimal importe;
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "solicitante_id", nullable = false)
+    private Usuario solicitante;
+    @Column(nullable = false) private String concepto;
+    @Column(nullable = false) private BigDecimal importe;
 
     @Enumerated(EnumType.STRING)
-    @Column private PrioridadSolicitud prioridad;
+    @Column(nullable = false) private PrioridadSolicitud prioridad;
 
     @Enumerated(EnumType.STRING)
-    @Column private EstadoSolicitudPago estado;
+    @Column(nullable = false) private EstadoSolicitudPago estado;
 
-    @Column (name = "fecha_solicitud")
+    @Column (name = "fecha_solicitud", nullable = false)
     private LocalDateTime fechaSolicitud;
+
+    // Quién aprobó o rechazó la solicitud, y cuándo (null mientras está PENDIENTE)
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "resuelto_por")
+    private Usuario resueltoPor;
+
+    @Column (name = "fecha_resolucion")
+    private LocalDateTime fechaResolucion;
 
 
     public void aprobar(){

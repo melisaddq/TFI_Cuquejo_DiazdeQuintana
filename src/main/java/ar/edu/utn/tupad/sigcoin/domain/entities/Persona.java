@@ -1,5 +1,6 @@
 package ar.edu.utn.tupad.sigcoin.domain.entities;
 
+import ar.edu.utn.tupad.sigcoin.domain.enums.TipoDocumento;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,28 +14,35 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name= "persona")
+@Table(name= "persona",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"tipo_documento", "numero_documento"}))
 public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (name = "tipo_documento")
-    private String tipoDocumento;
+    @Enumerated(EnumType.STRING)
+    @Column (name = "tipo_documento", nullable = false)
+    private TipoDocumento tipoDocumento;
 
-    @Column (name = "numero_documento")
+    @Column (name = "numero_documento", nullable = false)
     private String numeroDocumento;
-    @Column private String cuit;
-    @Column private String nombre;
-    @Column private String apellido;
+    @Column(unique = true) private String cuit;
+    @Column(nullable = false) private String nombre;
+    @Column(nullable = false) private String apellido;
     @Column private String email;
     @Column private String telefono;
     @Column private String direccion;
-    @Column private Boolean activo;
+    @Column(nullable = false) private Boolean activo;
 
-    @Column (name = "creado_en")
+    @Column (name = "creado_en", nullable = false, updatable = false)
     private LocalDateTime creadoEn;
+
+    @PrePersist
+    protected void onCreate() {
+        this.creadoEn = LocalDateTime.now();
+    }
 
     public String getNombreCompleto(){
         return nombre + " " + apellido;

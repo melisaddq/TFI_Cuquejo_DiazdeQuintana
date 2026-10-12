@@ -1,6 +1,7 @@
 package ar.edu.utn.tupad.sigcoin.domain.entities;
 
 import ar.edu.utn.tupad.sigcoin.domain.enums.Moneda;
+import ar.edu.utn.tupad.sigcoin.domain.enums.TipoCaja;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,15 +22,17 @@ public class Caja {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne @JoinColumn(name = "usuario_id")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-    @Column private String nombre;
-    @Column private String tipo; // enum?
+    @Column(nullable = false) private String nombre;
 
     @Enumerated(EnumType.STRING)
-    @Column private Moneda moneda;
-    @Column private BigDecimal saldo;
-    @Column private Boolean activa;
+    @Column(nullable = false) private TipoCaja tipo;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false) private Moneda moneda;
+    @Column(nullable = false) private BigDecimal saldo;
+    @Column(nullable = false) private Boolean activa;
 
 }

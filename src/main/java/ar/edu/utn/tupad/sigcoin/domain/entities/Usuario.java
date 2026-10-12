@@ -22,29 +22,25 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre_usuario")
+    @Column(name = "nombre_usuario", nullable = false, unique = true)
     private String nombreUsuario;
 
-    @Column private String email;
+    @Column(nullable = false, unique = true) private String email;
 
-    @Column(name = "password_hash")
+    @Column(name = "password_hash", nullable = false)
     private String passwordHash;
 
     @Enumerated(EnumType.STRING)
-    @Column
+    @Column(nullable = false)
     private Rol rol;
 
-    @Column private Boolean activo;
+    @Column(nullable = false) private Boolean activo;
 
-    @Column(name = "creado_en")
+    @Column(name = "creado_en", nullable = false, updatable = false)
     private LocalDateTime creadoEn;
 
-    // Métodos de dominio
-    public void iniciarSesion() {
-        // Lógica de dominio para inicio de sesión
-    }
-
-    public void cerrarSesion() {
-        // Lógica de dominio para cierre de sesión
+    @PrePersist
+    protected void onCreate() {
+        this.creadoEn = LocalDateTime.now();
     }
 }

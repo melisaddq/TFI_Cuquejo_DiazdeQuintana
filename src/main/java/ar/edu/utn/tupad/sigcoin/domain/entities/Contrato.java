@@ -1,15 +1,17 @@
 package ar.edu.utn.tupad.sigcoin.domain.entities;
 
 import ar.edu.utn.tupad.sigcoin.domain.enums.EstadoContrato;
+import ar.edu.utn.tupad.sigcoin.domain.enums.TipoIndice;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "contrato")
@@ -22,40 +24,46 @@ public class Contrato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne @JoinColumn(name = "inmueble_id")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "inmueble_id", nullable = false)
     private Inmueble inmueble;
 
     @ManyToMany
     @JoinTable(name = "contrato_inquilino", joinColumns = @JoinColumn(name = "contrato_id"), inverseJoinColumns = @JoinColumn(name = "persona_id"))
-    private List<Persona> inquilinos;
+    private Set<Persona> inquilinos;
 
     @ManyToMany
     @JoinTable(name = "contrato_garante", joinColumns = @JoinColumn(name = "contrato_id"), inverseJoinColumns = @JoinColumn(name = "persona_id"))
-    private List<Persona> garantes;
+    private Set<Persona> garantes;
 
-    @Column (name = "fecha_inicio")
+    @Column (name = "fecha_inicio", nullable = false)
     private LocalDate fechaInicio;
 
-    @Column (name = "fecha_fin")
+    @Column (name = "fecha_fin", nullable = false)
     private LocalDate fechaFin;
 
-    @Column(name = "importe_inicial")
+    @Column(name = "importe_inicial", nullable = false)
     private BigDecimal importeInicial;
 
-    @Column (name = "importe_venta")
+    @Column (name = "importe_vigente", nullable = false)
     private BigDecimal importeVigente;
 
-    @Column (name = "periodicidad_meses")
+    @Column (name = "periodicidad_meses", nullable = false)
     private Integer periodicidadMeses;
 
-    @Column (name = "tipo_indice")
-    private String tipoIndice;
+    @Enumerated(EnumType.STRING)
+    @Column (name = "tipo_indice", nullable = false)
+    private TipoIndice tipoIndice;
 
     @Enumerated(EnumType.STRING)
-    @Column private EstadoContrato estado;
+    @Column(nullable = false) private EstadoContrato estado;
 
-    @Column (name = "creado_en")
+    @Column (name = "creado_en", nullable = false, updatable = false)
     private LocalDateTime creadoEn;
+
+    @PrePersist
+    protected void onCreate() {
+        this.creadoEn = LocalDateTime.now();
+    }
 
     public BigDecimal calcularNuevoImporte(BigDecimal porcentajeAjuste) {
         // 1. Convertimos el porcentaje a decimal (ej: 150% pasa a ser 1.50)
@@ -65,8 +73,8 @@ public class Contrato {
         // 2. Calculamos el monto de aumento multiplicando el importe vigente por el factor
         BigDecimal montoAumento = this.importeVigente.multiply(factorDecimal);
 
-        // 3. Retornamos la suma del importe actual más el aumento calculado
-        return this.importeVigente.add(montoAumento);
+        // 3. Retornamos la suma del importe actual más el aumento calculado, redondeada a centavos
+        return this.importeVigente.add(montoAumento).setScale(2, RoundingMode.HALF_UP);
     }
     // Actualizamos importeVigente
 
