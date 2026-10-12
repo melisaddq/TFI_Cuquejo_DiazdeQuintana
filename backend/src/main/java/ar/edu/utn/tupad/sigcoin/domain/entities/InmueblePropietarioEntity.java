@@ -14,18 +14,21 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class InmueblePropietario {
+public class InmueblePropietarioEntity {
 
     @EmbeddedId
-    private InmueblePropietarioId id;
+    private InmueblePropietarioEntityId id;
 
-    @ManyToOne(fetch = FetchType.LAZY) @MapsId("inmuebleId")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("inmuebleId")
     @JoinColumn(name = "inmueble_id")
-    private Inmueble inmueble;
+    private InmuebleEntity inmuebleEntity;
 
-    @ManyToOne(fetch = FetchType.LAZY) @MapsId("personaId")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("personaId")
     @JoinColumn(name = "persona_id")
-    private Persona persona;
+    private PersonaEntity personaEntity;
 
-    @Column(nullable = false) private BigDecimal porcentaje;
+    @Column(nullable = false)
+    private BigDecimal porcentaje;
 }

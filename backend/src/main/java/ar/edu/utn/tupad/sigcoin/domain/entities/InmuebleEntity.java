@@ -11,30 +11,37 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Table (name = "inmueble")
+@Table(name = "inmueble")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Inmueble {
+public class InmuebleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false) private String direccion;
-    @Column(nullable = false) private String localidad;
-    @Column(nullable = false) private String provincia;
-    @Column private String identificacion;
+    @Column(nullable = false)
+    private String direccion;
+    @Column(nullable = false)
+    private String localidad;
+    @Column(nullable = false)
+    private String provincia;
+    @Column
+    private String identificacion;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false) private TipoInmueble tipo;
+    @Column(nullable = false)
+    private TipoInmueble tipo;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false) private EstadoInmueble estado;
-    @Column private String observaciones;
+    @Column(nullable = false)
+    private EstadoInmueble estado;
+    @Column
+    private String observaciones;
 
-    @Column (name = "creado_en", nullable = false, updatable = false)
+    @Column(name = "creado_en", nullable = false, updatable = false)
     private LocalDateTime creadoEn;
 
     @PrePersist

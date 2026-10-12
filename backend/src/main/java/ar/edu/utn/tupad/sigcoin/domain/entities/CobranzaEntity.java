@@ -17,35 +17,35 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cobranza {
+public class CobranzaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "contrato_id", nullable = false)
-    private Contrato contrato;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contrato_id", nullable = false)
+    private ContratoEntity contratoEntity;
 
-    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "registrado_por")
-    private Usuario registradoPor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "registrado_por")
+    private UsuarioEntity registradoPor;
 
-    @Column(nullable = false) private LocalDate periodo;
+    @Column(nullable = false)
+    private LocalDate periodo;
 
     // fechaPago y medioPago quedan en null mientras la cobranza está PENDIENTE
-    @Column (name = "fecha_pago")
+    @Column(name = "fecha_pago")
     private LocalDate fechaPago;
-    @Column(nullable = false) private BigDecimal importe;
+    @Column(nullable = false)
+    private BigDecimal importe;
 
     @Enumerated(EnumType.STRING)
-    @Column (name = "medio_pago")
+    @Column(name = "medio_pago")
     private MedioDePago medioPago;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false) private EstadoCobranza estado;
+    @Column(nullable = false)
+    private EstadoCobranza estado;
 
-
-
-    public void registrarPago(){
-
-    }
 
 }

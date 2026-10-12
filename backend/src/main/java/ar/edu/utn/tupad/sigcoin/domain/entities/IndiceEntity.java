@@ -18,17 +18,22 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Indice {
+public class IndiceEntity {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false) private TipoIndice tipo;
-    @Column(nullable = false) private LocalDate periodo;
-    @Column(nullable = false) private BigDecimal valor;
-    @Column private String fuente;
+    @Column(nullable = false)
+    private TipoIndice tipo;
+    @Column(nullable = false)
+    private LocalDate periodo;
+    @Column(nullable = false)
+    private BigDecimal valor;
+    @Column
+    private String fuente;
 
-    @Column (name = "consultado_en")
+    @Column(name = "consultado_en")
     private LocalDateTime consultadoEn;
 }

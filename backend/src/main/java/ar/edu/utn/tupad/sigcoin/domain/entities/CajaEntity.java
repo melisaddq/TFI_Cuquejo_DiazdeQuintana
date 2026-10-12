@@ -16,23 +16,29 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Caja {
+public class CajaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
+    private UsuarioEntity usuarioEntity;
 
-    @Column(nullable = false) private String nombre;
+    @Column(nullable = false)
+    private String nombre;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false) private TipoCaja tipo;
+    @Column(nullable = false)
+    private TipoCaja tipo;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false) private Moneda moneda;
-    @Column(nullable = false) private BigDecimal saldo;
-    @Column(nullable = false) private Boolean activa;
+    @Column(nullable = false)
+    private Moneda moneda;
+    @Column(nullable = false)
+    private BigDecimal saldo;
+    @Column(nullable = false)
+    private Boolean activa;
 
 }

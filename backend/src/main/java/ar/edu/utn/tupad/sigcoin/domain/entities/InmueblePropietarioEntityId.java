@@ -2,11 +2,7 @@ package ar.edu.utn.tupad.sigcoin.domain.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -16,7 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class InmueblePropietarioId implements Serializable {
+public class InmueblePropietarioEntityId implements Serializable {
 
     @Column(name = "inmueble_id")
     private Long inmuebleId;

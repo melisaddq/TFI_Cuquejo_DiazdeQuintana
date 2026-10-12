@@ -13,43 +13,50 @@ import java.time.LocalDateTime;
 
 
 @Entity
-@Table(name = "solicitud_pago" )
+@Table(name = "solicitud_pago")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SolicitudPago {
+public class SolicitudPagoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "solicitante_id", nullable = false)
-    private Usuario solicitante;
-    @Column(nullable = false) private String concepto;
-    @Column(nullable = false) private BigDecimal importe;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "solicitante_id", nullable = false)
+    private UsuarioEntity solicitante;
+    @Column(nullable = false)
+    private String concepto;
+    @Column(nullable = false)
+    private BigDecimal importe;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false) private PrioridadSolicitud prioridad;
+    @Column(nullable = false)
+    private PrioridadSolicitud prioridad;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false) private EstadoSolicitudPago estado;
+    @Column(nullable = false)
+    private EstadoSolicitudPago estado;
 
-    @Column (name = "fecha_solicitud", nullable = false)
+    @Column(name = "fecha_solicitud", nullable = false)
     private LocalDateTime fechaSolicitud;
 
     // Quién aprobó o rechazó la solicitud, y cuándo (null mientras está PENDIENTE)
-    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "resuelto_por")
-    private Usuario resueltoPor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "resuelto_por")
+    private UsuarioEntity resueltoPor;
 
-    @Column (name = "fecha_resolucion")
+    @Column(name = "fecha_resolucion")
     private LocalDateTime fechaResolucion;
 
 
-    public void aprobar(){
+    public void aprobar() {
 
     }
-    public void rechazar(){
+
+    public void rechazar() {
 
     }
 }

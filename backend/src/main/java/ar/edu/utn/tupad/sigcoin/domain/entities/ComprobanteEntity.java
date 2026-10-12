@@ -19,35 +19,41 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Table(name = "comprobante",
         uniqueConstraints = @UniqueConstraint(columnNames = {"tipo", "punto_venta", "numero"}))
-public class Comprobante {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ComprobanteEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "cobranza_id", nullable = false)
-    private Cobranza cobranza;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cobranza_id", nullable = false)
+    private CobranzaEntity cobranzaEntity;
 
-    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "emitido_por", nullable = false)
-    private Usuario emitidoPor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "emitido_por", nullable = false)
+    private UsuarioEntity emitidoPor;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false) private TipoComprobante tipo;
+    @Column(nullable = false)
+    private TipoComprobante tipo;
 
-    @Column (name = "punto_venta", nullable = false)
+    @Column(name = "punto_venta", nullable = false)
     private Integer puntoVenta;
 
-    @Column(nullable = false) private Integer numero;
+    @Column(nullable = false)
+    private Integer numero;
 
-    @Column (name = "fecha_emision", nullable = false)
+    @Column(name = "fecha_emision", nullable = false)
     private LocalDateTime fechaEmision;
 
-    @Column (name = "importe_total", nullable = false)
+    @Column(name = "importe_total", nullable = false)
     private BigDecimal importeTotal;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false) private EstadoComprobante estado;
+    @Column(nullable = false)
+    private EstadoComprobante estado;
 
-    @Column (name = "motivo_anulacion")
+    @Column(name = "motivo_anulacion")
     private String motivoAnulacion;
 
     public void anular(String motivo) {

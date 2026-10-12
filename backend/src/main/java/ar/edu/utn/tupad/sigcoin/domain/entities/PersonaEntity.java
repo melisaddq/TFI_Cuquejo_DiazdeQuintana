@@ -14,29 +14,36 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name= "persona",
+@Table(name = "persona",
         uniqueConstraints = @UniqueConstraint(columnNames = {"tipo_documento", "numero_documento"}))
-public class Persona {
+public class PersonaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    @Column (name = "tipo_documento", nullable = false)
+    @Column(name = "tipo_documento", nullable = false)
     private TipoDocumento tipoDocumento;
 
-    @Column (name = "numero_documento", nullable = false)
+    @Column(name = "numero_documento", nullable = false)
     private String numeroDocumento;
-    @Column(unique = true) private String cuit;
-    @Column(nullable = false) private String nombre;
-    @Column(nullable = false) private String apellido;
-    @Column private String email;
-    @Column private String telefono;
-    @Column private String direccion;
-    @Column(nullable = false) private Boolean activo;
+    @Column(unique = true)
+    private String cuit;
+    @Column(nullable = false)
+    private String nombre;
+    @Column(nullable = false)
+    private String apellido;
+    @Column
+    private String email;
+    @Column
+    private String telefono;
+    @Column
+    private String direccion;
+    @Column(nullable = false)
+    private Boolean activo;
 
-    @Column (name = "creado_en", nullable = false, updatable = false)
+    @Column(name = "creado_en", nullable = false, updatable = false)
     private LocalDateTime creadoEn;
 
     @PrePersist
@@ -44,7 +51,7 @@ public class Persona {
         this.creadoEn = LocalDateTime.now();
     }
 
-    public String getNombreCompleto(){
+    public String getNombreCompleto() {
         return nombre + " " + apellido;
     }
 
